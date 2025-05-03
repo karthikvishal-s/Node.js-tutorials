@@ -1,17 +1,18 @@
-const os = require('os')
-const user = os.userInfo()
+//Filesystem Asynchronous or default
+// File System Module
 
-console.log(os.uptime())
-console.log(user)
+const {readFile,writeFile}=require('fs')
 
-// Dont forget to add () after the function  like... os.function(())
-console.log(`The total memory of the system is ${os.totalmem()}\n`)
+readFile('./content/first.txt','utf8',(err,result)=>{
+    if(err){
+        console.log(err)
+    return}
+    console.log(result)
+})
 
-const currentOS={
-    name:os.type(),
-    release:os.release(),
-    mem:os.totalmem(),
-    free:os.freemem()
-}
-
-console.log(currentOS)
+readFile('./content/empty.txt','utf8',(err,result)=>{
+    if(err){
+        console.log(err)
+    return}
+    console.log(result)
+})
